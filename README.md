@@ -6,7 +6,6 @@ This repository was created by **Salman** to help make learning SQL easier for t
 By using Docker, this project ensures that the setup is quick and consistent, allowing everyone to focus on learning and improving their SQL writing skills together.
 
 
-
 ### How to Run the Database
 
 1. **Clone the Repository**  
@@ -18,6 +17,7 @@ By using Docker, this project ensures that the setup is quick and consistent, al
     Change to the project directory:
    ```bash
    cd Sql-Query_Practice
+<img src="https://www.docker.com/app/uploads/2023/08/logo-guide-logos-1.svg" width="100" height="auto" />
 
 3. **Set Up Docker**
     Make sure Docker is installed and running on your machine. If you haven’t installed it yet, follow the installation instructions above.
@@ -40,6 +40,7 @@ By using Docker, this project ensures that the setup is quick and consistent, al
     docker-compose up -d
 
 6. **Connect to the Database Using MySQL Workbench**  
+![MySQL Workbench Logo](https://www.mysql.com/common/logos/logo-mysql-170x115.png)
 
    **MySQL Workbench** is a popular, free tool used to interact with MySQL databases. It provides a visual interface for database management and allows you to run queries, design schemas, and perform administrative tasks.
 
