@@ -6,7 +6,7 @@ This repository was created by **Salman** to help make learning SQL easier for t
 By using Docker, this project ensures that the setup is quick and consistent, allowing everyone to focus on learning and improving their SQL writing skills together.
 
 
-### How to Run the Database
+## How to Run the Database
 
 1. **Clone the Repository**  
    First, clone this repository to your local machine:
@@ -62,3 +62,67 @@ By using Docker, this project ensures that the setup is quick and consistent, al
    5. Once the connection is successful, you can start writing and executing queries on your MySQL database.
 
    You can now interact with your database from within MySQL Workbench, run SQL queries, and manage your data directly.
+
+
+
+## SQL Query Practice - Tasks
+
+These tasks are designed to help you practice writing and executing various SQL queries on the project database. Complete each task to improve your skills and understanding of SQL.
+
+### 1. Basic SELECT Queries
+**Task**:  
+Select all columns from the `employees` table.
+
+---
+
+### 2. Aggregation Functions
+**Task**:  
+Count how many employees there are in each department.
+
+---
+
+### 3. JOIN Queries
+**Task**:  
+Get the `first_name`, `last_name`, and `department_name` for each employee by joining the `employees` and `departments` tables.
+
+---
+
+### 4. Subqueries
+**Task**:  
+Select the `first_name`, `last_name`, and department name for all employees working in departments that have more than 10 employees.
+
+---
+
+### 5. UPDATE Queries
+**Task**:  
+Update the salary of a specific employee (e.g., employee `John Doe`) to a new amount.
+
+---
+
+### 6. DELETE Queries
+**Task**:  
+Delete an employee based on their `employee_id`.
+
+---
+
+### 7. INSERT Queries
+**Task**:  
+Insert a new employee into the `employees` table with sample data.
+
+---
+
+### 8. Advanced Queries
+**Task**:  
+Categorize employees as `High`, `Medium`, or `Low` salary earners based on their salary using a `CASE WHEN` clause.
+
+---
+
+### 9. Constraints and Transactions
+**Task**:  
+Add a UNIQUE constraint to the `email` column in the `employees` table.
+
+---
+
+### 10. Indexes
+**Task**:  
+Create an index on the `last_name` column of the `employees` table to improve query performance for queries filtering by last name.
