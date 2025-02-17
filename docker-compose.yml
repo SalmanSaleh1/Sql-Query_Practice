@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    volumes:
+      - "${INIT_FILE}:/docker-entrypoint-initdb.d"  # Mount the SQL script directory
+    ports:
+      - "${DB_PORT}:3306"
+    hostname: "${HOSTNAME}"
+    env_file:
+      - .env
