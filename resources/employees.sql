@@ -1,61 +1,80 @@
-CREATE TABLE departments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL
+-- Create Employees table
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    BirthDate DATE,
+    HireDate DATE,
+    DepartmentID INT,
+    Salary DECIMAL(10, 2)
 );
 
-CREATE TABLE employees (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    department_id INT,
-    salary DECIMAL(10,2),
-    hire_date DATE,
-    manager_id INT,
-    FOREIGN KEY (department_id) REFERENCES departments(id),
-    FOREIGN KEY (manager_id) REFERENCES employees(id)
+-- Create Departments table
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(100),
+    ManagerID INT
 );
 
-CREATE TABLE projects (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    start_date DATE,
-    end_date DATE
+-- Create Products table
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    Category VARCHAR(50),
+    Price DECIMAL(10, 2),
+    StockQuantity INT
 );
 
-CREATE TABLE employee_projects (
-    employee_id INT,
-    project_id INT,
-    role VARCHAR(50),
-    PRIMARY KEY (employee_id, project_id),
-    FOREIGN KEY (employee_id) REFERENCES employees(id),
-    FOREIGN KEY (project_id) REFERENCES projects(id)
+-- Create Orders table
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    Status VARCHAR(20),
+    TotalAmount DECIMAL(10, 2)
 );
 
-INSERT INTO departments (name) VALUES
-('Engineering'),
-('HR'),
-('Marketing'),
-('Finance');
+-- Create OrderDetails table
+CREATE TABLE OrderDetails (
+    OrderDetailID INT PRIMARY KEY,
+    OrderID INT,
+    ProductID INT,
+    Quantity INT,
+    UnitPrice DECIMAL(10, 2),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+);
 
-INSERT INTO employees (first_name, last_name, department_id, salary, hire_date, manager_id) VALUES
-('Alice', 'Johnson', 1, 75000.00, '2020-06-15', NULL),
-('Bob', 'Smith', 1, 68000.00, '2021-04-10', 1),
-('Charlie', 'Brown', 2, 60000.00, '2019-09-23', NULL),
-('David', 'Williams', 3, 72000.00, '2022-01-30', 3),
-('Emma', 'Taylor', 4, 80000.00, '2018-07-19', NULL),
-('Frank', 'Miller', 1, 71000.00, '2021-11-03', 1),
-('Grace', 'Davis', 3, 69000.00, '2020-05-21', 4);
+-- Insert data into Employees table
+INSERT INTO Employees (EmployeeID, FirstName, LastName, BirthDate, HireDate, DepartmentID, Salary)
+VALUES 
+(1, 'Ahmed', 'Mohamed', '1980-05-15', '2015-06-01', 1, 60000),
+(2, 'Mohamed', 'Ahmed', '1990-02-20', '2018-07-15', 2, 55000),
+(3, 'Moamen', 'Saleh', '1975-11-30', '2010-01-10', 3, 75000);
 
-INSERT INTO projects (name, start_date, end_date) VALUES
-('Website Redesign', '2023-01-15', '2023-06-30'),
-('HR System Upgrade', '2023-02-01', '2023-08-15'),
-('Marketing Campaign', '2023-03-10', '2023-09-30');
+-- Insert data into Departments table
+INSERT INTO Departments (DepartmentID, DepartmentName, ManagerID)
+VALUES
+(1, 'HR', 1),
+(2, 'IT', 2),
+(3, 'Sales', 3);
 
-INSERT INTO employee_projects (employee_id, project_id, role) VALUES
-(1, 1, 'Lead Developer'),
-(2, 1, 'Developer'),
-(3, 2, 'HR Specialist'),
-(4, 3, 'Marketing Lead'),
-(5, 3, 'Finance Advisor'),
-(6, 1, 'Support Developer'),
-(7, 3, 'Marketing Assistant');
+-- Insert data into Products table
+INSERT INTO Products (ProductID, ProductName, Category, Price, StockQuantity)
+VALUES
+(1, 'Laptop', 'Electronics', 1200.00, 50),
+(2, 'Smartphone', 'Electronics', 800.00, 200),
+(3, 'Desk Chair', 'Furniture', 150.00, 30);
+
+-- Insert data into Orders table
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, Status, TotalAmount)
+VALUES
+(1, 101, '2025-02-20', 'Shipped', 2000.00),
+(2, 102, '2025-02-22', 'Pending', 400.00);
+
+-- Insert data into OrderDetails table
+INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, UnitPrice)
+VALUES
+(1, 1, 1, 1, 1200.00),
+(2, 1, 2, 1, 800.00),
+(3, 2, 3, 2, 150.00);
